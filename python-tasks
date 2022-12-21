@@ -2,77 +2,25 @@ correctAnswers = []
 correctCount = 0
 answers = ["Eight", "Woody", "Green", "A nail", "The zoo", "Pinocchio", "Tinkerbell", "Ice", "White", "The White House"]
 yourAnswers = []
+allQuestions = [
+    "How many legs does a spider have?", 
+    "What is the name of the toy cowboy in Toy Story?", 
+    "What is the color of an emerald?", 
+    "What is something you hit with a hammer?",
+    "What's the name of a place you go to see lots of animals?",
+    "Whose nose grew longer every time he lied?",
+    "What is the name of the fairy in Peter Pan?",
+    "If you freeze water, what do you get?",
+    "What colors are the stars on the American flag?",
+    "Where does the President of the United States live while in office?"
+    ]
 
-question1 = "How many legs does a spider have?"
-question2 = "What is the name of the toy cowboy in Toy Story?"
-question3 = "What is the color of an emerald?"
-question4 = "What is something you hit with a hammer?"
-question5 = "What's the name of a place you go to see lots of animals?"
-question6 = "Whose nose grew longer every time he lied?"
-question7 = "What is the name of the fairy in Peter Pan?"
-question8 = "If you freeze water, what do you get?"
-question9 = "What colors are the stars on the American flag?"
-question10 = "Where does the President of the United States live while in office?"
-
-print(question1)
-reply1 = input("Your answer: ")
-yourAnswers.append(reply1)
-correctAnswers.append(True if answers[0].lower() == reply1.lower() else False)
-correctCount += 1 if answers[0].lower() == reply1.lower() else 0
-
-print(question2)
-reply2 = input("Your answer: ")
-yourAnswers.append(reply2)
-correctAnswers.append(True if answers[1].lower() == reply2.lower() else False)
-correctCount += 1 if answers[1].lower() == reply2.lower() else 0
-
-print(question3)
-reply3 = input("Your answer: ")
-yourAnswers.append(reply3)
-correctAnswers.append(True if answers[2].lower() == reply3.lower() else False)
-correctCount += 1 if answers[2].lower() == reply3.lower() else 0
-
-print(question4)
-reply4 = input("Your answer: ")
-yourAnswers.append(reply4)
-correctAnswers.append(True if answers[3].lower() == reply4.lower() else False)
-correctCount += 1 if answers[3].lower() == reply4.lower() else 0
-
-print(question5)
-reply5 = input("Your answer: ")
-yourAnswers.append(reply5)
-correctAnswers.append(True if answers[4].lower() == reply5.lower() else False)
-correctCount += 1 if answers[4].lower() == reply5.lower() else 0
-
-print(question6)
-reply6 = input("Your answer: ")
-yourAnswers.append(reply6)
-correctAnswers.append(True if answers[5].lower() == reply6.lower() else False)
-correctCount += 1 if answers[5].lower() == reply6.lower() else 0
-
-print(question7)
-reply7 = input("Your answer: ")
-yourAnswers.append(reply7)
-correctAnswers.append(True if answers[6].lower() == reply7.lower() else False)
-correctCount += 1 if answers[6].lower() == reply7.lower() else 0
-
-print(question8)
-reply8 = input("Your answer: ")
-yourAnswers.append(reply8)
-correctAnswers.append(True if answers[7].lower() == reply8.lower() else False)
-correctCount += 1 if answers[7].lower() == reply8.lower() else 0
-
-print(question9)
-reply9 = input("Your answer: ")
-yourAnswers.append(reply9)
-correctAnswers.append(True if answers[8].lower() == reply9.lower() else False)
-correctCount += 1 if answers[8].lower() == reply9.lower() else 0
-
-print(question10)
-reply10 = input("Your answer: ")
-yourAnswers.append(reply10)
-correctAnswers.append(True if answers[9].lower() == reply10.lower() else False)
-correctCount += 1 if answers[9].lower() == reply10.lower() else 0
+for i, row in enumerate(allQuestions):
+  print(row)
+  reply1 = input("Your answer: ")
+  yourAnswers.append(reply1)
+  correctAnswers.append(True if answers[i].lower() == reply1.lower() else False)
+  correctCount += 1 if answers[i].lower() == reply1.lower() else 0
 
 print("You have", correctCount, "out of 10 correct answers.", end = " ")
 print("Congratulations!" if correctCount > 7 else "Unfortunately you failed the quiz", end = "\n\n")
