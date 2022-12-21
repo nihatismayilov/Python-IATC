@@ -1,12 +1,5 @@
-from time import time_ns
+def countDown(num):
+  for i in reversed(range(num+1)):
+    print(i)
 
-def rand():
-  stri = ""
-  for i in range(0,10):
-   k = time_ns()%256
-   if k < 33:
-     k += 33
-   stri += chr(k)
-  return stri
-
-print(rand())
+countDown(10)
