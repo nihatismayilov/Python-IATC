@@ -1,0 +1,47 @@
+def netSalary(salary, type):
+  if type == 1:
+    tax = salary*14/100
+    # salary -= tax
+    print(f"Your gross salary is {salary} and your net salary is {salary - tax}")
+  else:
+    tax = salary*1/100
+    # salary -= tax
+    print(f"Your gross salary is {salary} and your net salary is {salary - tax}")
+
+print("Input your salary:")
+salary = int(input())
+saveSalary = 0
+correctSalary = True
+
+if salary < 250:
+  correctSalary = False
+
+while correctSalary == False:
+  print("Your salary cannot be as low, please enter your real salary or submit your salary by pressing 0:")
+  saveSalary = salary
+  salary = int(input())
+  if (salary == 0 or salary > 250):
+    salary = saveSalary if salary == 0 else salary
+    correctSalary = True
+  else:
+    saveSalary = salary
+    correctSalary = False
+
+
+
+print("For Dovlet please enter 1, for Ozel please enter 2:")
+type = int(input())
+correctType = True
+
+if (type != 1 and type != 2):
+  correctType = False
+
+while correctType == False:
+  print("Entered value is not valid, please enter valid number")
+  type = int(input())
+  if (type != 1 and type != 2):
+    correctType = False
+  else:
+    correctType = True
+
+netSalary(salary, type)
