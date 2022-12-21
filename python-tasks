@@ -1,87 +1,82 @@
-import os
-from time import time_ns
-def randomgn(a,b):
-  k=time_ns()%b
-  if(k<a):
-    k=k+a
-  return k
+correctAnswers = []
+correctCount = 0
+answers = ["Eight", "Woody", "Green", "A nail", "The zoo", "Pinocchio", "Tinkerbell", "Ice", "White", "The White House"]
+yourAnswers = []
 
-sketch=[
-    ["1","2","3"],
-    ["4","5","6"],
-    ["7","8","9"]
-]
+question1 = "How many legs does a spider have?"
+question2 = "What is the name of the toy cowboy in Toy Story?"
+question3 = "What is the color of an emerald?"
+question4 = "What is something you hit with a hammer?"
+question5 = "What's the name of a place you go to see lots of animals?"
+question6 = "Whose nose grew longer every time he lied?"
+question7 = "What is the name of the fairy in Peter Pan?"
+question8 = "If you freeze water, what do you get?"
+question9 = "What colors are the stars on the American flag?"
+question10 = "Where does the President of the United States live while in office?"
 
-firstPlayer=True
+print(question1)
+reply1 = input("Your answer: ")
+yourAnswers.append(reply1)
+correctAnswers.append(True if answers[0].lower() == reply1.lower() else False)
+correctCount += 1 if answers[0].lower() == reply1.lower() else 0
 
-def draw(sketch):
-  for i,row in enumerate(sketch) :
-    for j,cell in enumerate(row) :
-      if j!=2:
-        print(cell,end="|")
-      if j==2:
-        print(cell)
-    if(i!=2):
-      print("-----")
+print(question2)
+reply2 = input("Your answer: ")
+yourAnswers.append(reply2)
+correctAnswers.append(True if answers[1].lower() == reply2.lower() else False)
+correctCount += 1 if answers[1].lower() == reply2.lower() else 0
 
-def setlment():
-  count=0
-  for i,row in enumerate(sketch):
-    for j,col in enumerate(row):
-      if(col!=" "):
-        count+=1
-  if count==6:
-    print(draw)
+print(question3)
+reply3 = input("Your answer: ")
+yourAnswers.append(reply3)
+correctAnswers.append(True if answers[2].lower() == reply3.lower() else False)
+correctCount += 1 if answers[2].lower() == reply3.lower() else 0
 
+print(question4)
+reply4 = input("Your answer: ")
+yourAnswers.append(reply4)
+correctAnswers.append(True if answers[3].lower() == reply4.lower() else False)
+correctCount += 1 if answers[3].lower() == reply4.lower() else 0
 
-def checkForWin(sketch) :
-  for column in sketch:
-    if column[0]!=" " and column[0]==column[1] and column[1]==column[2]:
-      return True
-  for i,row in enumerate(sketch):
-    for j,col in enumerate(sketch):
-      if i!=0:
-        continue
-      elif sketch[i][j]!=" " and sketch[i][j]==sketch[i+1][j]==sketch[i+2][j]:
-        return True
-  if sketch[0][0]!=" " and sketch[0][0]==sketch[1][1]==sketch[2][2] :
-    return True
-  if sketch[0][2]!=" " and sketch[0][2]==sketch[1][1]==sketch[2][0] :
-    return True
-  return False
+print(question5)
+reply5 = input("Your answer: ")
+yourAnswers.append(reply5)
+correctAnswers.append(True if answers[4].lower() == reply5.lower() else False)
+correctCount += 1 if answers[4].lower() == reply5.lower() else 0
 
-while True:
-  draw(sketch)
-  if firstPlayer:
-    num = int(input("Enter num between 1 and 9"))
-    if not (num>=1 and num<=9) :
-      continue
-    row = (num - 1) // 3
-    col = num % 3 - 1
-    if sketch[row][col]!="X" and sketch[row][col]!="O":
-      sketch[row][col]="X"
-      firstPlayer=False
-    else :
-       print("you can't place here ")
-  else:
-    num=randomgn(1,10)
-    row = (num - 1) // 3
-    col = num % 3 - 1
-    if sketch[row][col]!="X" and sketch[row][col]!="O":
-      sketch[row][col]="O"
-      firstPlayer=True
-  print("\n\n")
-  # Clearing the Screen
-  os.system('cls')
-          
-  if checkForWin(sketch):
-    # Clearing the Screen
-    os.system('cls')
-    draw(sketch)
-    if firstPlayer :
-      print("Winner is computer")
-    else:
-      print("Winner is you")
-    break
+print(question6)
+reply6 = input("Your answer: ")
+yourAnswers.append(reply6)
+correctAnswers.append(True if answers[5].lower() == reply6.lower() else False)
+correctCount += 1 if answers[5].lower() == reply6.lower() else 0
 
-  setlment()
+print(question7)
+reply7 = input("Your answer: ")
+yourAnswers.append(reply7)
+correctAnswers.append(True if answers[6].lower() == reply7.lower() else False)
+correctCount += 1 if answers[6].lower() == reply7.lower() else 0
+
+print(question8)
+reply8 = input("Your answer: ")
+yourAnswers.append(reply8)
+correctAnswers.append(True if answers[7].lower() == reply8.lower() else False)
+correctCount += 1 if answers[7].lower() == reply8.lower() else 0
+
+print(question9)
+reply9 = input("Your answer: ")
+yourAnswers.append(reply9)
+correctAnswers.append(True if answers[8].lower() == reply9.lower() else False)
+correctCount += 1 if answers[8].lower() == reply9.lower() else 0
+
+print(question10)
+reply10 = input("Your answer: ")
+yourAnswers.append(reply10)
+correctAnswers.append(True if answers[9].lower() == reply10.lower() else False)
+correctCount += 1 if answers[9].lower() == reply10.lower() else 0
+
+print("You have", correctCount, "out of 10 correct answers.", end = " ")
+print("Congratulations!" if correctCount > 7 else "Unfortunately you failed the quiz", end = "\n\n")
+
+for i in range(len(correctAnswers)):
+  if correctAnswers[i] == False:
+    print(f"Your answer for {i+1} question was {yourAnswers[i]}, but the right answer is ", answers[i])
