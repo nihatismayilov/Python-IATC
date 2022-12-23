@@ -1,0 +1,17 @@
+print("select an operation(*;/;+;-;%):")
+operation = input()
+print("enter first number:")
+first = float(input())
+print("enter second number:")
+second = float(input())
+
+if operation=='*':
+  print(first*second)
+elif operation=='/':
+  print(first/second)
+elif operation=='+':
+  print(first+second)
+elif operation=='-':
+  print(first-second)
+elif operation=='%':
+  print(first%second)
